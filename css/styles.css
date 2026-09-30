@@ -1,0 +1,289 @@
+/* PLUMBING_V 1 — reset tecnico canonico (Toolkit/boilerplate/plumbing.css) */
+[hidden] { display: none !important; }
+img { max-width: 100%; height: auto; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* ══════════ PANIFICIO BETLEMME — Via San Vito 5, angolo Via Celestino IV ══════════
+   «Le nostre deliziose focaccine e pizzette mignon»: le parole del loro cartello rosso sul pilastro. La testata è l'insegna (il rosso
+   col corsivo bianco), le focacce stanno su un cartello da pilastro, il pane e i dolci nelle caselle di legno del banco, le recensioni
+   sulla carta del pane a quadretti. La firma è il forno a piani con la pala (_pbt_firma.mjs). */
+:root {
+  --rosso: #C92A24;
+  --rosso-scuro: #9E1F1B;
+  --legno: #7A4B2A;
+  --legno-scuro: #5E3820;
+  --legno-chiaro: #A8784A;
+  --farina: #FBF3E6;
+  --muro: #F5E9D6;
+  --crosta: #C98A3C;
+  --spiga: #F6C35B;
+  --inchiostro: #2E211B;
+  --grigio: #62554C;
+  --aperto: #2F6B2A;
+  --f-insegna: 'Playball', 'Brush Script MT', cursive;
+  --f-titoli: 'Podkova', Georgia, serif;
+  --f-testo: 'Gudea', 'Segoe UI', Arial, sans-serif;
+  --gutter: 16px;
+  --testata-h: 64px;
+}
+@media (min-width: 760px) { :root { --gutter: 24px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; color: var(--inchiostro); font: 400 1.1rem/1.62 var(--f-testo); background: var(--farina); }
+a { color: var(--rosso-scuro); }
+b, strong { font-weight: 700; }
+.salta { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 16px; background: #fff; color: #111; font-weight: 700; text-decoration: none; }
+.salta:focus { top: 10px; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+section[id] { scroll-margin-top: calc(var(--testata-h) + 14px); }
+.intero { white-space: nowrap; }
+:focus-visible { outline: 3px solid var(--spiga); outline-offset: 2px; }
+/* finché i caratteri non arrivano il ripiego è più largo: una parola lunga va a capo invece di uscire (riserva-check, #233) */
+h1, h2, h3, .marchio__nome, .piede__marchio { overflow-wrap: anywhere; }
+
+/* ── la testata: l'insegna rossa ── */
+.testata { position: sticky; top: 0; z-index: 50; background: var(--rosso); color: #FFFFFF; box-shadow: inset 0 -4px 0 var(--rosso-scuro); }
+.testata__dentro { display: flex; align-items: center; gap: 10px; max-width: 1240px; margin: 0 auto; padding: 6px var(--gutter) 10px; min-height: var(--testata-h); }
+.marchio { display: inline-flex; flex-direction: column; min-width: 0; flex: 0 1 auto; color: #FFFFFF; text-decoration: none; line-height: 1; }
+.marchio__nome { font: 400 1.9rem/1.1 var(--f-insegna); }
+.marchio__sotto { display: none; margin-top: 1px; font: 700 .7rem/1.2 var(--f-testo); letter-spacing: .14em; text-transform: uppercase; color: #FFE6C2; white-space: nowrap; }
+.voci { display: none; }
+.testata__azioni { margin-left: auto; display: flex; align-items: center; gap: 6px; flex: none; }
+.lingue { display: flex; }
+.lingue button { min-width: 34px; min-height: 38px; padding: 0 5px; border: 1px solid rgba(255, 255, 255, .6); background: transparent; color: #FFFFFF; font: 700 .86rem var(--f-testo); cursor: pointer; }
+.lingue button + button { border-left: 0; }
+.lingue button.is-on { background: #FFFFFF; border-color: #FFFFFF; color: var(--rosso-scuro); }
+.chiama { display: none; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; background: #FFFFFF; color: var(--rosso-scuro); font: 700 1rem var(--f-testo); text-decoration: none; }
+.chiama:hover { background: var(--farina); }
+.burger { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; padding: 10px; border: 1px solid rgba(255, 255, 255, .6); border-radius: 4px; background: transparent; cursor: pointer; }
+.burger span { display: block; height: 2px; background: #FFFFFF; transition: transform .2s, opacity .2s; }
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.menu-mobile { position: fixed; top: var(--testata-h); left: 0; right: 0; z-index: 49; max-height: calc(100vh - var(--testata-h)); overflow-y: auto; padding: 10px var(--gutter) 22px; background: var(--rosso-scuro); box-shadow: 0 10px 24px rgba(0, 0, 0, .3); }
+.menu-mobile a { display: block; padding: 12px 2px 10px; border-bottom: 1px solid rgba(255, 255, 255, .22); color: #FFFFFF; font: 600 1.3rem/1.3 var(--f-titoli); text-decoration: none; }
+.menu-mobile__tel { display: flex !important; justify-content: center; gap: 8px; margin-top: 14px; border: 0 !important; border-radius: 999px; background: #FFFFFF; color: var(--rosso-scuro) !important; font-family: var(--f-testo) !important; font-weight: 700 !important; }
+
+/* ── l'apertura: il muro, il forno a destra ── */
+.apertura { display: grid; gap: 30px; padding: 40px max(var(--gutter), calc((100% - 1240px) / 2)) 54px; background: var(--muro); }
+.apertura__sopra { margin: 0 0 14px; font: 700 .9rem/1.4 var(--f-testo); letter-spacing: .12em; text-transform: uppercase; color: var(--rosso-scuro); }
+.apertura__titolo { max-width: 13em; margin: 0 0 18px; font: 700 clamp(2.2rem, 1.4rem + 2.8vw, 3.5rem)/1.08 var(--f-titoli); letter-spacing: -.01em; color: var(--inchiostro); text-wrap: balance; }
+.apertura__frase { max-width: 32em; margin: 0 0 22px; font-size: 1.16rem; }
+.citazione { max-width: 30em; margin: 0 0 22px; padding: 2px 0 2px 18px; border-left: 4px solid var(--rosso); }
+.citazione p { margin: 0; font: 500 clamp(1.25rem, 1.05rem + .8vw, 1.6rem)/1.35 var(--f-titoli); color: var(--legno-scuro); }
+.citazione footer { margin-top: 6px; font-size: .98rem; color: var(--grigio); }
+.voto { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; margin: 0; }
+.voto__n { font: 700 2.6rem/1 var(--f-titoli); color: var(--rosso-scuro); }
+.voto__su { font-size: 1.02rem; }
+.voto--sezione { margin: -4px 0 30px; }
+.stato { display: inline-flex; align-items: center; gap: 8px; margin: 16px 0 0; font: 700 1.02rem/1.4 var(--f-testo); color: var(--inchiostro); }
+.stato::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: currentColor; opacity: .45; flex: none; }
+.stato.is-aperto { color: var(--aperto); }
+.stato.is-aperto::before { opacity: 1; box-shadow: 0 0 0 3px rgba(47, 107, 42, .2); }
+.apertura__azioni { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.bottone { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 26px; border: 2px solid var(--rosso); border-radius: 999px; background: transparent; color: var(--rosso-scuro); font: 700 1.05rem/1.1 var(--f-testo); text-decoration: none; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+.bottone--pieno { background: var(--rosso); color: #FFFFFF; }
+.bottone--pieno:hover { background: var(--rosso-scuro); border-color: var(--rosso-scuro); }
+.bottone--vuoto:hover { background: var(--rosso); color: #FFFFFF; }
+
+/* la pala nel forno: la firma */
+.apertura__firma { width: 100%; max-width: 640px; justify-self: center; }
+.fornata { margin: 0; -webkit-user-select: none; user-select: none; }
+.forno__svg { border-radius: 16px; box-shadow: 0 0 0 1px #E7D6BC, 0 24px 40px -30px rgba(94, 56, 32, .9); }
+.fornata__didascalia { min-height: 3em; margin: 14px 0 0; font-size: 1.05rem; line-height: 1.45; text-align: center; }
+.fornata__d { display: none; }
+.fornata[data-modo="0"] .fornata__d[data-m="0"], .fornata[data-modo="1"] .fornata__d[data-m="1"], .fornata[data-modo="2"] .fornata__d[data-m="2"] { display: inline; }
+.fornata__modi { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
+.fornata__modi button { min-height: 44px; padding: 0 16px; border: 2px solid var(--legno); border-radius: 999px; background: #FFFFFF; color: var(--legno-scuro); font: 700 1rem/1.2 var(--f-testo); cursor: pointer; }
+.fornata__modi button:hover { background: var(--farina); }
+.fornata__modi button[aria-pressed="true"] { background: var(--legno-scuro); border-color: var(--legno-scuro); color: #FFFFFF; }
+/* senza JS il prodotto non cambia: i bottoni restano nascosti col loro posto (#240) */
+.no-js .fornata__modi { visibility: hidden; }
+.apertura__nota { max-width: 36em; margin: 14px auto 0; font-size: .98rem; color: var(--grigio); text-align: center; }
+
+/* ── i capitoli ── */
+.capitolo { padding: 68px max(var(--gutter), calc((100% - 1180px) / 2)) 66px; }
+.capitolo--legno { background: var(--legno); color: #FFFFFF; }
+.capitolo--farina { background: var(--muro); }
+.etichetta { margin: 0; font: 700 .9rem/1.3 var(--f-testo); letter-spacing: .16em; text-transform: uppercase; color: var(--rosso-scuro); }
+.etichetta--chiara { color: #FFE6C2; }
+.capitolo__titolo { max-width: 20em; margin: 8px 0 20px; font: 700 clamp(1.8rem, 1.3rem + 1.9vw, 2.7rem)/1.14 var(--f-titoli); color: var(--inchiostro); text-wrap: balance; }
+.capitolo--legno .capitolo__titolo { color: #FFFFFF; }
+.capitolo__sotto { max-width: 44em; margin: 0 0 32px; font-size: 1.1rem; }
+.capitolo__nota { max-width: 46em; margin: 28px 0 0; font-size: 1rem; color: var(--grigio); }
+figure { margin: 0; }
+figcaption { margin-top: 8px; font-size: .96rem; color: var(--grigio); }
+.foto { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.foto img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.taglio { font-style: normal; font-family: var(--f-testo); }
+
+/* le focacce: il cartello rosso del pilastro e le foto */
+.focacce { display: grid; gap: 26px; align-items: start; }
+.cartello { position: relative; padding: 26px 24px 22px; border-radius: 10px; background: var(--rosso); color: #FFFFFF; box-shadow: 0 18px 30px -22px rgba(94, 20, 16, .8); }
+.cartello__testa { margin: 0; font: 400 2.6rem/1.1 var(--f-insegna); text-align: center; }
+.cartello__sotto { margin: 16px 0 6px; padding-bottom: 6px; border-bottom: 1px solid rgba(255, 255, 255, .45); font: 700 .86rem/1.3 var(--f-testo); letter-spacing: .14em; text-transform: uppercase; color: #FFE6C2; }
+.cartello__lista { margin: 0; padding: 0; list-style: none; }
+.cartello__lista li { position: relative; padding: 5px 0 5px 26px; font: 500 1.14rem/1.35 var(--f-titoli); }
+/* la spiga del loro cartello, a filo */
+.cartello__lista li::before { content: ''; position: absolute; left: 2px; top: .55em; width: 14px; height: 10px; border-top: 2px solid var(--spiga); border-right: 2px solid var(--spiga); border-radius: 0 10px 0 0; transform: skewX(-20deg); }
+.cartello__piede { margin: 18px 0 0; font: italic 400 1.02rem/1.4 var(--f-testo); text-align: center; color: #FFE6C2; }
+/* le colonne si riempiono dall'alto: nessun buco fra foto di proporzioni diverse; la vetrina a tutta larghezza */
+.focacce__foto { columns: 2; column-gap: 14px; }
+.focacce__foto figure { break-inside: avoid; margin: 0 0 14px; }
+.focacce__larga { column-span: all; }
+
+/* le caselle del banco: la scaffalatura di legno */
+.caselle { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin: 0; padding: 10px; list-style: none; border-radius: 6px; background: var(--legno-scuro); box-shadow: inset 0 0 0 4px #4A2B18; }
+.casella { padding: 10px; border: 5px solid #8A5A34; border-width: 5px 5px 8px; background: #4A2B18; }
+.casella .foto img { border-radius: 2px; box-shadow: 0 10px 16px -10px rgba(0, 0, 0, .8); }
+/* il cartellino ovale, come quelli del forno appesi ai cestini */
+.casella__nome { display: table; max-width: 100%; margin: -16px auto 0; padding: 5px 14px 4px; position: relative; border: 1px solid #D8C7A6; border-radius: 999px; background: #FFFDF6; color: var(--inchiostro); font: 700 .95rem/1.25 var(--f-testo); text-align: center; }
+.natale { display: grid; gap: 20px; align-items: center; margin-top: 40px; padding-top: 34px; border-top: 2px solid rgba(255, 230, 194, .35); }
+.natale__titolo { margin: 0 0 8px; font: 400 2.4rem/1.1 var(--f-insegna); color: #FFFFFF; }
+.natale__testo p { max-width: 32em; margin: 0 0 16px; }
+.natale__piccola { max-width: 260px; }
+
+/* il negozio */
+.negozio { display: grid; gap: 22px; align-items: start; }
+.negozio__testo p { max-width: 36em; margin: 0 0 14px; }
+.nome-casa { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding: 14px 18px; border-radius: 10px; background: var(--muro); }
+.nome-casa__parola { font: 400 2rem/1.1 var(--f-insegna); color: var(--rosso-scuro); }
+
+/* dicono: sulla carta del pane a quadretti */
+.recensioni { display: grid; gap: 22px; margin: 0; padding: 0; list-style: none; align-items: start; }
+.recensione { padding: 22px 22px 18px; border-radius: 4px; background-color: #F8F5DC; background-image: linear-gradient(90deg, rgba(141, 173, 82, .28) 1px, transparent 1px), linear-gradient(rgba(141, 173, 82, .28) 1px, transparent 1px); background-size: 16px 16px; box-shadow: 0 16px 26px -22px rgba(94, 56, 32, .7); }
+.recensione:nth-child(odd) { transform: rotate(-.6deg); }
+.recensione:nth-child(even) { transform: rotate(.5deg); }
+.recensione__testo { margin: 0; font-size: 1.04rem; line-height: 1.6; }
+.recensione__chi { margin: 12px 0 0; font-size: .95rem; line-height: 1.5; color: var(--grigio); }
+.recensione__chi b { display: block; font: 700 1.08rem/1.35 var(--f-titoli); color: var(--inchiostro); }
+.dicono__nota { max-width: 46em; margin: 28px 0 0; font-size: 1rem; }
+.dicono__nota a { font-weight: 700; }
+
+/* orari */
+.stato--settimana { margin: -6px 0 20px; }
+.orari-dove { display: grid; gap: 34px; align-items: start; }
+.orari { max-width: 540px; padding: 14px 18px; background: #FFFFFF; border-radius: 12px; box-shadow: 0 14px 26px -22px rgba(94, 56, 32, .6); }
+.orari__riga { display: grid; grid-template-columns: 7.2em minmax(0, 1fr); gap: 8px; padding: 7px 4px; border-bottom: 1px solid #F0E4D2; }
+.orari__riga:last-child { border-bottom: 0; }
+.orari__riga span:first-child { font-weight: 700; }
+.orari__riga.is-today { background: #FBE5DD; border-radius: 6px; font-weight: 700; }
+.orari__nota { max-width: 32em; margin: 16px 0 0; font-size: 1rem; color: var(--grigio); }
+.dove { display: grid; gap: 22px; }
+.cartina { overflow: hidden; border: 6px solid #FFFFFF; border-radius: 12px; box-shadow: 0 14px 26px -22px rgba(94, 56, 32, .6); }
+.cartina iframe { display: block; width: 100%; height: 320px; border: 0; }
+.indirizzo { margin: 0; }
+.indirizzo div { display: grid; grid-template-columns: 7.2em minmax(0, 1fr); gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(122, 75, 42, .22); }
+.indirizzo dt { font: 700 .86rem/2 var(--f-testo); letter-spacing: .1em; text-transform: uppercase; color: var(--rosso-scuro); }
+.indirizzo dd { margin: 0; overflow-wrap: anywhere; }
+.dove__azioni { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+
+/* domande */
+.domande { max-width: 840px; }
+.domande details { border-bottom: 1px solid rgba(46, 33, 27, .2); }
+.domande summary { padding: 14px 4px 12px; font: 600 1.18rem/1.4 var(--f-titoli); color: var(--inchiostro); cursor: pointer; }
+.domande details p { max-width: 46em; margin: 0 0 16px; padding: 0 4px; }
+
+/* ── la chiusura: l'insegna ── */
+.piede { background: var(--rosso); color: #FFFFFF; }
+.piede__dentro { max-width: 900px; margin: 0 auto; padding: 42px var(--gutter) 96px; text-align: center; }
+.piede__marchio { margin: 0; font: 400 3.2rem/1.1 var(--f-insegna); }
+.piede__sotto { margin: 4px 0 18px; font: 700 .82rem/1.3 var(--f-testo); letter-spacing: .18em; text-transform: uppercase; color: #FFE6C2; }
+.piede__dove, .piede__orario { margin: 0 0 8px; }
+.piede a { color: #FFFFFF; }
+.piede__cred { max-width: 54em; margin: 18px auto 10px; font-size: .96rem; color: #FFEBE3; }
+.piede__su { font-weight: 700; }
+
+/* ── reveal (plumbing) ── */
+.js .reveal { opacity: 0; }
+.js .reveal.in-view { opacity: 1; }
+html:not(.js) .reveal { opacity: 1; }
+.reduced-motion .reveal { opacity: 1 !important; }
+
+/* ── la barra e la lightbox ── */
+.action-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: grid; grid-template-columns: 1fr 1fr; background: var(--rosso-scuro); transform: translateY(100%); transition: transform .25s; }
+.action-bar.is-visible { transform: translateY(0); }
+.action-bar a { display: flex; align-items: center; justify-content: center; min-height: 54px; color: #fff; font: 700 1.05rem var(--f-testo); text-decoration: none; }
+.action-bar a:first-child { background: var(--rosso); }
+#lightbox { position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(40, 24, 16, .95); }
+#lightbox[hidden] { display: none !important; }
+#lightbox img { width: auto; max-width: min(1400px, 100%); max-height: 88vh; }
+#lightboxClose { position: absolute; top: 14px; right: 16px; width: 48px; height: 48px; border: 1px solid rgba(255, 255, 255, .6); border-radius: 50%; background: transparent; color: #fff; font-size: 32px; line-height: 1; cursor: pointer; }
+
+/* ── le larghezze ── */
+@media (max-width: 359px) {
+  .testata__dentro { gap: 6px; }
+  .lingue button { min-width: 31px; }
+  .marchio__nome { font-size: 1.6rem; }
+  .stato { font-size: .94rem; }
+  .fornata__modi button { padding: 0 12px; }
+  .caselle { padding: 6px; }
+  .casella { padding: 6px; }
+  .casella__nome { font-size: .86rem; padding: 4px 8px 3px; }
+}
+@media (min-width: 420px) {
+  .marchio__sotto { display: block; }
+}
+@media (min-width: 560px) {
+  .chiama { display: inline-flex; }
+  .caselle { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 760px) {
+  .action-bar { display: none; }
+  .piede__dentro { padding-bottom: 50px; }
+  .recensioni { grid-template-columns: 1fr 1fr; gap: 30px 26px; }
+  .orari-dove { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
+  .cartina iframe { height: 340px; }
+  .natale { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 30px; }
+  .negozio { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .negozio__banco { grid-column: 1 / -1; }
+  .focacce__foto { gap: 18px; }
+}
+@media (min-width: 960px) {
+  .apertura { grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); align-items: center; gap: 46px; }
+  .focacce { grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: 34px; }
+  .caselle { grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 14px; }
+}
+@media (min-width: 1060px) {
+  :root { --testata-h: 68px; }
+  .testata__dentro { gap: 16px; }
+  .marchio { flex-direction: row; align-items: baseline; gap: 12px; }
+  .voci { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-left: 24px; }
+  .voci a { padding: 4px 1px 2px; color: #FFFFFF; font: 700 1.02rem var(--f-testo); text-decoration: none; }
+  .voci a:hover, .voci a[aria-current="true"] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 7px; }
+  .burger { display: none; }
+  .recensioni { grid-template-columns: repeat(3, 1fr); }
+}
+
+/*FORNO*/
+/* la pala nel forno a piani — generato da _pbt_firma.mjs: non modificare a mano */
+.forno__svg { display: block; width: 100%; height: auto; overflow: hidden; background: #F5E9D6; }
+.cartello__carta { fill: #C92A24; }
+.cartello__nome { font: 400 38px 'Playball', 'Brush Script MT', cursive; fill: #FFFFFF; }
+.cartello__spiga { fill: none; stroke: #F6C35B; stroke-width: 1.6; stroke-linecap: round; }
+.banco { fill: #7A4B2A; }
+.banco__piano { fill: #8A5A34; }
+.banco__cornice { fill: none; stroke: #5E3820; stroke-width: 3; }
+.forno__corpo { fill: #3B3431; stroke: #564C47; stroke-width: 3; }
+.forno__spia { fill: #E23A2E; }
+.piano__dentro { fill: #1E1714; }
+.piano__pietra { fill: #B69E84; }
+.resistenza { fill: none; stroke: #6B5B52; stroke-width: 3; stroke-linejoin: round; }
+.resistenza--accesa { stroke: #FF8A3D; }
+.calore-fisso { opacity: .8; }
+.forno__bocca { fill: #2A2320; }
+.pala__lama { fill: url(#fornoLegno); stroke: #9A6E3C; stroke-width: 1; }
+.pala__manico { fill: #B7874E; stroke: #9A6E3C; stroke-width: 1; }
+.porta__anta { fill: #4A413D; stroke: #6F645E; stroke-width: 2; }
+.porta__maniglia { fill: #C92A24; }
+.vapore path { fill: none; stroke: #FFFFFF; stroke-width: 3; stroke-linecap: round; opacity: .8; }
+.fornata[data-modo="0"] .gusto:not([data-m="0"]) { display: none; }
+.fornata[data-modo="1"] .gusto:not([data-m="1"]) { display: none; }
+.fornata[data-modo="2"] .gusto:not([data-m="2"]) { display: none; }
+.firma-attesa .calore { opacity: 0; }
+.firma-attesa .cotto, .firma-attesa .vapore { opacity: 0; }
+.firma-attesa .lievito { transform: scale(1, 0.45); }
+/*/FORNO*/
