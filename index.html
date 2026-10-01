@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
 <script>(function(){var r=document.documentElement;r.classList.remove('no-js');
 /* la firma: finché main.js non parte c'è la teglia cruda sulla pala, fuori dal forno; se il codice non arriva, dopo 2,5 s c'è la focaccia sfornata */
 try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('firma-attesa');window.__attesaForno=setTimeout(function(){r.classList.remove('firma-attesa')},2500)}}catch(e){}})()</script>
@@ -20,15 +21,58 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playball&amp;family=Podkova:wght@400;500;600;700&amp;family=Gudea:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/fonts.css?v=1">
 <link rel="stylesheet" href="css/styles.css?v=1">
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 <script src="js/main.js?v=1" defer></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Bakery","name":"Panificio Betlemme","description":"Panificio e forno in Via San Vito 5, angolo Via Celestino IV, a Milano: pane, focacce al taglio, focaccine e pizzette mignon, dolci da forno.","url":"https://rotenzark.github.io/panificio-betlemme-san-vito/","image":"https://rotenzark.github.io/panificio-betlemme-san-vito/img/og.jpg","telephone":"+39 389 787 5575","address":{"@type":"PostalAddress","streetAddress":"Via San Vito 5","postalCode":"20123","addressLocality":"Milano","addressRegion":"MI","addressCountry":"IT"},"geo":{"@type":"GeoCoordinates","latitude":45.45957,"longitude":9.18261},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"07:00","closes":"17:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","reviewCount":"264","bestRating":"5"},"sameAs":["https://www.instagram.com/panificio_betlemme/","https://www.facebook.com/panificiobetlemme/"]}
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Panificio Betlemme",
+  "description": "Panificio e forno in Via San Vito 5, angolo Via Celestino IV, a Milano: pane, focacce al taglio, focaccine e pizzette mignon, dolci da forno.",
+  "url": "https://rotenzark.github.io/panificio-betlemme-san-vito/",
+  "image": "https://rotenzark.github.io/panificio-betlemme-san-vito/img/og.jpg",
+  "telephone": "+39 389 787 5575",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via San Vito 5",
+    "postalCode": "20123",
+    "addressLocality": "Milano",
+    "addressRegion": "MI",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.45957,
+    "longitude": 9.18261
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "07:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "07:00",
+      "closes": "17:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/panificio_betlemme/",
+    "https://www.facebook.com/panificiobetlemme/"
+  ]
+}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -87,7 +131,7 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
       <h1 id="titolo" class="apertura__titolo" data-i18n="h.titolo">Le nostre deliziose focaccine e pizzette mignon.</h1>
       <p class="apertura__frase" data-i18n="h.testo">Il forno di Via San Vito, fra Via Torino e il Carrobbio: pane, focacce al taglio, pizzette e dolci da forno, fatti qui. Dal lunedì al venerdì dalle 7 alle 19, il sabato dalle 7 alle 17.</p>
       <blockquote class="citazione">
-        <p>«Questo forno sincero, ultimo residuo di “negozi di quartiere”.»</p>
+        <p lang="it">«Questo forno sincero, ultimo residuo di “negozi di quartiere”.»</p>
         <footer data-i18n="h.chi">Alessandro Laghezza, in una recensione su Google</footer>
       </blockquote>
       <p class="voto"><b class="voto__n">4,6</b> <span class="voto__su" data-i18n="h.google">su Google, 264 recensioni</span></p>
@@ -274,12 +318,12 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
     <h2 id="diconoT" class="capitolo__titolo" data-i18n="d.titolo">Incartato nella carta a quadretti</h2>
     <p class="voto voto--sezione"><b class="voto__n">4,6</b> <span class="voto__su" data-i18n="d.google">su Google, 264 recensioni</span></p>
     <ul class="recensioni">
-      <li class="recensione reveal"><p class="recensione__testo">«Prodotti spettacolari. In una sola mattinata in 3 persone (e in 2 round) abbiamo provato le focaccine, la focaccia bianca, la valdostana, la focaccia con cipolle, la parigina, la focaccia con olive, la focaccia con i 5 formaggi e i pangoccioli. Ancora dobbiamo scegliere il nostro prodotto preferito. Stra consigliato!»</p><p class="recensione__chi"><b>Antonella Del Vento</b> <span data-i18n="d.g4m">Google, 4 mesi fa</span></p></li>
-      <li class="recensione reveal"><p class="recensione__testo">«Passavo per caso dalle parti di via Torino e mi sono imbattuto in questo panificio. Ho preso una focaccia con pomodorini e due pizzette con pomodorini e olive. Penso di poter dire che siano tra i prodotti da forno più buoni che abbia mai assaggiato. Tornerò per provare altre preparazioni!»</p><p class="recensione__chi"><b>Riccardo Benaglio</b> <span data-i18n="d.g5m">Google, 5 mesi fa</span></p></li>
-      <li class="recensione reveal"><p class="recensione__testo">«Il panificio più buono che conosca, ogni volta che sono a Milano non possono mancare più tappe qui! (consiglio treccia e pan gocciolo, incredibili!!!)»</p><p class="recensione__chi"><b>Yhoshua Moscato</b> <span data-i18n="d.g4m">Google, 4 mesi fa</span></p></li>
-      <li class="recensione reveal"><p class="recensione__testo">«Questo panificio è buonissimo. Le pizzette e focaccine per me sono imbattibili, sempre croccanti e deliziose. Il personale è molto gentile e rapido, anche se c’è fila infatti scorre sempre molto in fretta. <span class="taglio">[…]</span>»</p><p class="recensione__chi"><b>Maria Teresa Mazzitelli</b> <span data-i18n="d.g11m">Google, 11 mesi fa</span></p></li>
-      <li class="recensione reveal"><p class="recensione__testo">«Ci andavo quando ero al liceo lì dietro e lo consideravo uno dei più buoni panifici mai provati.. a distanza di 20 anni ci vado ancora, le focaccine provate lì ti rimangono nel cuore ❤️. <span class="taglio">[…]</span>»</p><p class="recensione__chi"><b>Fabiano Gianelli</b> <span data-i18n="d.g2a">Google, 2 anni fa</span></p></li>
-      <li class="recensione reveal"><p class="recensione__testo">«L'interno é davvero carino e accogliente, il bancone é sempre così fornito che non sai dove guardare per la tanta scelta. Per quanto riguarda il cibo, la focaccia liscia é comparabile a quella ligure, a Milano e dintorni mai provata una così buona, così come le focaccine, il resto dei prodotti sono validissimi ma non reggono il confronto, nel complesso comunque ottimo.»</p><p class="recensione__chi"><b>Mirko Crosa</b> <span data-i18n="d.g2a">Google, 2 anni fa</span></p></li>
+      <li class="recensione reveal"><p lang="it" class="recensione__testo">«Prodotti spettacolari. In una sola mattinata in 3 persone (e in 2 round) abbiamo provato le focaccine, la focaccia bianca, la valdostana, la focaccia con cipolle, la parigina, la focaccia con olive, la focaccia con i 5 formaggi e i pangoccioli. Ancora dobbiamo scegliere il nostro prodotto preferito. Stra consigliato!»</p><p class="recensione__chi"><b>Antonella Del Vento</b> <span data-i18n="d.g4m">Google, 4 mesi fa</span></p></li>
+      <li class="recensione reveal"><p lang="it" class="recensione__testo">«Passavo per caso dalle parti di via Torino e mi sono imbattuto in questo panificio. Ho preso una focaccia con pomodorini e due pizzette con pomodorini e olive. Penso di poter dire che siano tra i prodotti da forno più buoni che abbia mai assaggiato. Tornerò per provare altre preparazioni!»</p><p class="recensione__chi"><b>Riccardo Benaglio</b> <span data-i18n="d.g5m">Google, 5 mesi fa</span></p></li>
+      <li class="recensione reveal"><p lang="it" class="recensione__testo">«Il panificio più buono che conosca, ogni volta che sono a Milano non possono mancare più tappe qui! (consiglio treccia e pan gocciolo, incredibili!!!)»</p><p class="recensione__chi"><b>Yhoshua Moscato</b> <span data-i18n="d.g4m">Google, 4 mesi fa</span></p></li>
+      <li class="recensione reveal"><p lang="it" class="recensione__testo">«Questo panificio è buonissimo. Le pizzette e focaccine per me sono imbattibili, sempre croccanti e deliziose. Il personale è molto gentile e rapido, anche se c’è fila infatti scorre sempre molto in fretta. <span class="taglio">[…]</span>»</p><p class="recensione__chi"><b>Maria Teresa Mazzitelli</b> <span data-i18n="d.g11m">Google, 11 mesi fa</span></p></li>
+      <li class="recensione reveal"><p lang="it" class="recensione__testo">«Ci andavo quando ero al liceo lì dietro e lo consideravo uno dei più buoni panifici mai provati.. a distanza di 20 anni ci vado ancora, le focaccine provate lì ti rimangono nel cuore ❤️. <span class="taglio">[…]</span>»</p><p class="recensione__chi"><b>Fabiano Gianelli</b> <span data-i18n="d.g2a">Google, 2 anni fa</span></p></li>
+      <li class="recensione reveal"><p lang="it" class="recensione__testo">«L'interno é davvero carino e accogliente, il bancone é sempre così fornito che non sai dove guardare per la tanta scelta. Per quanto riguarda il cibo, la focaccia liscia é comparabile a quella ligure, a Milano e dintorni mai provata una così buona, così come le focaccine, il resto dei prodotti sono validissimi ma non reggono il confronto, nel complesso comunque ottimo.»</p><p class="recensione__chi"><b>Mirko Crosa</b> <span data-i18n="d.g2a">Google, 2 anni fa</span></p></li>
     </ul>
     <p class="dicono__nota"><span data-i18n="d.nota">Dalle recensioni su Google, come sono state scritte; i tagli sono segnati con […]. Anche la frase in alto viene da una recensione su Google.</span> <a href="https://www.google.com/maps/search/?api=1&amp;query=Panificio+Betlemme%2C+Via+San+Vito+5%2C+20123+Milano" target="_blank" rel="noopener" data-i18n="d.tutte">Tutte le recensioni su Google</a></p>
   </section>
@@ -304,7 +348,7 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
       </div>
       <div class="dove">
         <div class="cartina reveal">
-          <iframe title="Mappa: Panificio Betlemme, Via San Vito 5, Milano" data-i18n-title="o.mappa" src="https://maps.google.com/maps?q=Panificio%20Betlemme%2C%20Via%20San%20Vito%205%2C%2020123%20Milano&amp;z=16&amp;output=embed" width="600" height="400" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="mappa-clic" data-mappa-clic style="--mappa-h: 400px"><template><iframe title="Mappa: Panificio Betlemme, Via San Vito 5, Milano" data-i18n-title="o.mappa" src="https://maps.google.com/maps?q=Panificio%20Betlemme%2C%20Via%20San%20Vito%205%2C%2020123%20Milano&amp;z=16&amp;output=embed" width="600" height="400" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></template><div class="mappa-clic__velo"><a class="mappa-clic__btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Panificio+Betlemme%2C+Via+San+Vito+5%2C+20123+Milano" target="_blank" rel="noopener">Mostra la mappa</a><p class="mappa-clic__nota">La mappa è di Google: aprendola, Google riceve il tuo indirizzo IP e può usare i suoi cookie.</p></div></div>
         </div>
         <dl class="indirizzo">
           <div><dt data-i18n="o.dove">Dove</dt><dd data-i18n="o.dovev">Via San Vito 5, angolo Via Celestino IV, 20123 Milano: fra Via Torino e il Carrobbio</dd></div>
@@ -340,7 +384,7 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
     <p class="piede__sotto">Panificio · Rizzardi Zerbino</p>
     <p class="piede__dove">Via San Vito 5, angolo Via Celestino IV, 20123 Milano · <a href="tel:+393897875575" class="intero">389 787 5575</a></p>
     <p class="piede__orario" data-i18n="f2.orario">Lunedì–venerdì 7–19 · sabato 7–17 · domenica chiuso</p>
-    <p class="piede__cred" data-i18n="f2.cred">Sito dimostrativo realizzato da <a href="https://bespokestud.io" rel="noopener">Bespoke Studio</a> · le foto vengono dalla loro pagina Instagram e Facebook e dalle recensioni su Google; orari e recensioni dalla loro scheda Google (settembre 2026). Il forno a piani l'abbiamo disegnato noi, dalla loro foto.</p>
+    <p class="piede__cred" data-i18n="f2.cred">Sito dimostrativo realizzato da <a href="https://bespokestud.io" rel="noopener">Bespoke Studio</a> · <a href="privacy.html">Privacy</a> · le foto vengono dalla loro pagina Instagram e Facebook e dalle recensioni su Google; orari e recensioni dalla loro scheda Google (settembre 2026). Il forno a piani l'abbiamo disegnato noi, dalla loro foto.</p>
     <p><a class="piede__su" href="#inizio" data-i18n="f2.su">Torna su ↑</a></p>
   </div>
 </footer>
@@ -355,5 +399,6 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
   <img id="lightboxImg" src="" alt="">
 </div>
 
+<script src="js/mappa-clic.js?v=1" defer></script>
 </body>
 </html>
